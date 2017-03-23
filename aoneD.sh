@@ -28,10 +28,11 @@ dir_name=${p%.*}
 ec_magenta "dir name is $dir_name"
 unzip ${apk_path}  -d ${dir_name} || die "Failed to unzip $apk_path"
 
-(
+
 cd ${dir_name}
-../dex2j.sh *.dex --force && java -jar ../jd-gui-1.4.0.jar  *.jar &> /dev/null 2>&1 &
-)
+BASEDIR=$(dirname "$0")
+${BASEDIR}/dex2j.sh *.dex --force && java -jar ${BASEDIR}/jd-gui-1.4.0.jar  *.jar &> /dev/null 2>&1 &
+cd ..
 
 
 
