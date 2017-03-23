@@ -26,7 +26,7 @@ java -version  &>  /dev/null  2>&1 || die "Failed to Find Java !"
 p=${apk_path##*/}
 dir_name=${p%.*}
 ec_magenta "dir name is $dir_name"
-unzip ${apk_path}  -d ${dir_name} || die "Failed to unzip apk"
+unzip ${apk_path}  -d ${dir_name} || die "Failed to unzip $apk_path"
 
 (
 cd ${dir_name}
